@@ -1,0 +1,13 @@
+{
+  "name": "vite-react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "YutaUra",
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.1"
+}
