@@ -8,7 +8,7 @@ const toAbsolute = (p: string) => resolve(__dirname, p);
 const template = await readFile(toAbsolute("dist/static/index.html"), "utf-8");
 const { render } = await import("./dist/server/entry-server.js");
 
-const routesToPrerender = ["/"];
+const routesToPrerender = ["/", "/about"];
 
 for (const url of routesToPrerender) {
   const { html: appHtml } = await render(url);

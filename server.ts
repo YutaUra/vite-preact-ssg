@@ -38,7 +38,7 @@ if (!isProduction) {
 // Serve HTML
 app.use("*", async (req, res) => {
   try {
-    const url = req.originalUrl.replace(base, "");
+    const url = req.originalUrl.replace(base, "/");
 
     let template;
     let render: typeof import("./src/entry-server").render;
