@@ -5,8 +5,12 @@
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "target": "ESNext",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@styled-system/*": ["./styled-system/*"]
+    }
   },
-  "include": ["src", "server.ts"],
+  "include": ["src", "server.ts", "styled-system"],
   "exclude": ["dist"]
 }
