@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "pnpm run build:client && pnpm run build:server",
+    "build": "pnpm run build:client && pnpm run build:server && pnpm run build:static",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
-    "start:prod": "NODE_ENV=production tsx server.ts",
+    "build:static": "vite build --outDir dist/static && tsx prerender.ts",
+    "start:prod": "serve dist/static",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -31,6 +32,7 @@
     "@types/react": "^18.2.53",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
+    "serve": "^14.2.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12"
