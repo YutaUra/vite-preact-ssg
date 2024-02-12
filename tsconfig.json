@@ -8,9 +8,16 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@styled-system/*": ["./styled-system/*"]
+      "@styled-system/*": ["./styled-system/*"],
+      "@design-system/*": ["./design-system/*"]
     }
   },
-  "include": ["src", "server.ts", "styled-system"],
+  "include": [
+    "src",
+    "server.ts",
+    "styled-system",
+    "design-system",
+    ".storybook"
+  ],
   "exclude": ["dist"]
 }
