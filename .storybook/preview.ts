@@ -1,5 +1,5 @@
 import "../src/index.css";
-import { Preview, ReactRenderer } from "@storybook/react";
+import { Preview, PreactRenderer } from "@storybook/preact";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { colors } from "../design-system/style/colors";
 
@@ -26,7 +26,7 @@ const preview = {
     },
   },
   decorators: [
-    withThemeByClassName<ReactRenderer>({
+    withThemeByClassName<PreactRenderer>({
       themes: { light: "light", dark: "dark" },
       defaultTheme: "light",
     }),

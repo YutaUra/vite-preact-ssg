@@ -1,9 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
+import type { Meta, StoryObj } from "@storybook/preact";
+import { JSX } from "preact";
 import { button } from "@styled-system/recipes";
 
 type ButtonProps = Parameters<typeof button>[0] &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className"> & {
+  Omit<
+    JSX.HTMLAttributes<HTMLButtonElement>,
+    "className" | keyof NonNullable<Parameters<typeof button>[0]>
+  > & {
     "data-hover"?: string;
     "data-active"?: string;
     "data-focus-visible"?: string;
@@ -40,11 +43,11 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Button>;
+} satisfies Meta<ButtonProps>;
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<ButtonProps>;
 
 export const PrimaryNormal = {
   args: { priority: "primary" },

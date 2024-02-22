@@ -21,6 +21,10 @@ import {
   button,
 } from "./design-system/components/button";
 
+const isStorybook =
+  process.env["npm_lifecycle_event"] === "storybook" ||
+  process.env["npm_lifecycle_event"] === "build-storybook";
+
 export default defineConfig({
   preflight: true,
   include: ["./src/**/*.{ts,tsx}"],
@@ -51,8 +55,7 @@ export default defineConfig({
     },
   },
   staticCss: {
-    recipes:
-      process.env["npm_lifecycle_event"] === "storybook" ? "*" : undefined,
+    recipes: isStorybook ? "*" : undefined,
   },
   outdir: "styled-system",
 });

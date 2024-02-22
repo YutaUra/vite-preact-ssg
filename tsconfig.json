@@ -6,10 +6,13 @@
     "module": "ESNext",
     "target": "ESNext",
     "jsx": "preserve",
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@styled-system/*": ["./styled-system/*"],
-      "@design-system/*": ["./design-system/*"]
+      "@design-system/*": ["./design-system/*"],
+      "react": ["./node_modules/preact/compat/"],
+      "react-dom": ["./node_modules/preact/compat/"]
     }
   },
   "include": [
@@ -19,5 +22,5 @@
     "design-system",
     ".storybook"
   ],
-  "exclude": ["dist"]
+  "exclude": ["dist", "styled-system"]
 }

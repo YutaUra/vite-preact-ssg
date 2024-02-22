@@ -1,8 +1,21 @@
-import loadable from "@loadable/component";
-import { Switch, Route } from "wouter";
+import { lazy, Suspense, ComponentType, Component } from "preact/compat";
+import { Switch, Route } from "wouter-preact";
 
-const Index = loadable(() => import("./pages/index"));
-const About = loadable(() => import("./pages/about"));
+type SuspenseProps = Suspense extends Component<infer P> ? P : never;
+
+const withSuspense = <P extends object>(
+  WrappedComponent: ComponentType<P>,
+  fallback: SuspenseProps["fallback"] = null
+) => {
+  return (props: P) => (
+    <Suspense fallback={fallback}>
+      <WrappedComponent {...props} />
+    </Suspense>
+  );
+};
+
+const Index = withSuspense(lazy(() => import("./pages/index")));
+const About = withSuspense(lazy(() => import("./pages/about")));
 
 export const Routes = () => {
   return (

@@ -1,5 +1,5 @@
 import { css } from "@styled-system/css";
-import { Link, RouteComponentProps } from "wouter";
+import { Link, RouteComponentProps } from "wouter-preact";
 import { Counter } from "../components/Counter";
 import { button } from "@styled-system/recipes";
 

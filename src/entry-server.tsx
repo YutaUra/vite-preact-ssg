@@ -1,15 +1,12 @@
-import { StrictMode } from "react";
-import { renderToString } from "react-dom/server";
-import { Router } from "wouter";
+import { renderToStringAsync } from "preact-render-to-string";
+import { Router } from "wouter-preact";
 import { App } from "./App";
 
-export async function render(url: string, ssrManifest: string | undefined) {
-  const html = renderToString(
-    <StrictMode>
-      <Router ssrPath={url}>
-        <App />
-      </Router>
-    </StrictMode>
+export async function render(url: string, _ssrManifest: string | undefined) {
+  const html = await renderToStringAsync(
+    <Router ssrPath={url}>
+      <App />
+    </Router>
   );
   return { html, head: "" };
 }
