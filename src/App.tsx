@@ -1,5 +1,12 @@
 import { Routes } from "./routes";
+import { Router, RouterOptions } from "wouter-preact";
 
-export const App = () => {
-  return <Routes />;
-};
+export interface AppProps {
+  routerProps?: RouterOptions;
+}
+
+export const App = ({ routerProps }: AppProps) => (
+  <Router {...routerProps}>
+    <Routes />
+  </Router>
+);

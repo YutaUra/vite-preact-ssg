@@ -1,12 +1,10 @@
 import { renderToStringAsync } from "preact-render-to-string";
-import { Router } from "wouter-preact";
 import { App } from "./App";
+import type { Prerender } from "./vite-plugins/prerender/plugin";
 
-export async function render(url: string, _ssrManifest: string | undefined) {
+export const prerender: Prerender = async ({ url }) => {
   const html = await renderToStringAsync(
-    <Router ssrPath={url}>
-      <App />
-    </Router>
+    <App routerProps={{ ssrPath: url }} />
   );
   return { html, head: "" };
-}
+};

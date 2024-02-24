@@ -65,8 +65,11 @@ devDependencies:
     specifier: 5.13.8
     version: 5.13.8
   '@types/node':
-    specifier: ^20.11.19
+    specifier: 20.11.19
     version: 20.11.19
+  magic-string:
+    specifier: 0.30.7
+    version: 0.30.7
   postcss-prune-var:
     specifier: 1.1.1
     version: 1.1.1

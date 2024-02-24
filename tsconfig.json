@@ -15,12 +15,6 @@
       "react-dom": ["./node_modules/preact/compat/"]
     }
   },
-  "include": [
-    "src",
-    "server.ts",
-    "styled-system",
-    "design-system",
-    ".storybook"
-  ],
+  "include": ["src", "styled-system", "design-system", ".storybook"],
   "exclude": ["dist", "styled-system"]
 }
