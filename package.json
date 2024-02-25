@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "husky",
     "dev": "vite dev",
     "build": "panda codegen && vite build --outDir dist",
     "start:prod": "serve dist",
@@ -35,6 +35,7 @@
     "@storybook/preact-vite": "8.0.0-beta.4",
     "@tsconfig/strictest": "2.0.3",
     "@types/node": "20.11.20",
+    "husky": "9.0.11",
     "magic-string": "0.30.7",
     "postcss-prune-var": "1.1.1",
     "serve": "14.2.1",
