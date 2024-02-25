@@ -7,6 +7,7 @@
     "target": "ESNext",
     "jsx": "preserve",
     "skipLibCheck": true,
+    "noPropertyAccessFromIndexSignature": false,
     "baseUrl": ".",
     "paths": {
       "@styled-system/*": ["./styled-system/*"],

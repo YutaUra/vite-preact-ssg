@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/preact";
-import { JSX } from "preact";
 import { button } from "@styled-system/recipes";
+import { JSX } from "preact";
 
 type ButtonProps = Parameters<typeof button>[0] &
   Omit<
@@ -14,7 +14,11 @@ type ButtonProps = Parameters<typeof button>[0] &
 
 const Button = ({ priority, size, ...props }: ButtonProps) => {
   return (
-    <button className={button(button.raw({ priority, size }))} {...props} />
+    <button
+      type="button"
+      className={button(button.raw({ priority, size }))}
+      {...props}
+    />
   );
 };
 
@@ -29,13 +33,13 @@ const meta = {
     size: {
       type: {
         name: "enum",
-        value: button.variantMap["size"],
+        value: button.variantMap.size,
       },
     },
     priority: {
       type: {
         name: "enum",
-        value: button.variantMap["priority"],
+        value: button.variantMap.priority,
       },
     },
   },
@@ -75,15 +79,13 @@ const Swatch = () => {
       style={{
         display: "grid",
         gridAutoFlow: "column",
-        gridTemplateColumns: `repeat(${button.variantMap["priority"].length}, 1fr)`,
-        gridTemplateRows: `repeat(${
-          button.variantMap["size"].length * 5
-        }, 1fr)`,
+        gridTemplateColumns: `repeat(${button.variantMap.priority.length}, 1fr)`,
+        gridTemplateRows: `repeat(${button.variantMap.size.length * 5}, 1fr)`,
         gap: "16px",
       }}
     >
-      {button.variantMap["priority"].map((priority) =>
-        button.variantMap["size"].map((size) =>
+      {button.variantMap.priority.map((priority) =>
+        button.variantMap.size.map((size) =>
           (
             [
               null,
@@ -120,8 +122,8 @@ const Swatch = () => {
                 </Button>
               </div>
             );
-          })
-        )
+          }),
+        ),
       )}
     </div>
   );

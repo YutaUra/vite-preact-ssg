@@ -1,9 +1,9 @@
 import { css } from "@styled-system/css";
+import { button } from "@styled-system/recipes";
 import { Link, RouteComponentProps } from "wouter-preact";
 import { Counter } from "../components/Counter";
-import { button } from "@styled-system/recipes";
 
-const Page = (_: RouteComponentProps<{}>) => {
+const Page = (_: RouteComponentProps) => {
   return (
     <div>
       <h1 className={css({ fontSize: "2xl", fontWeight: "bold" })}>

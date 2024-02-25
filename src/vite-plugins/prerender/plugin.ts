@@ -1,7 +1,7 @@
 import { basename, join } from "path";
-import { rm, mkdir, writeFile } from "fs/promises";
-import type { Plugin, ResolvedConfig } from "vite";
+import { mkdir, rm, writeFile } from "fs/promises";
 import MagicString from "magic-string";
+import type { Plugin, ResolvedConfig } from "vite";
 
 const routesToPrerender = ["/", "/about"];
 
@@ -46,14 +46,14 @@ export const PrerenderPlugin = ({
         // Through v5.0.4
         // https://github.com/vitejs/vite/blob/b93dfe3e08f56cafe2e549efd80285a12a3dc2f0/packages/vite/src/node/plugins/importAnalysisBuild.ts#L95-L98
         s.replace(
-          `if (!__VITE_IS_MODERN__ || !deps || deps.length === 0) {`,
-          `if (!__VITE_IS_MODERN__ || !deps || deps.length === 0 || typeof window === 'undefined') {`
+          "if (!__VITE_IS_MODERN__ || !deps || deps.length === 0) {",
+          `if (!__VITE_IS_MODERN__ || !deps || deps.length === 0 || typeof window === 'undefined') {`,
         );
         // 5.0.5+
         // https://github.com/vitejs/vite/blob/c902545476a4e7ba044c35b568e73683758178a3/packages/vite/src/node/plugins/importAnalysisBuild.ts#L93
         s.replace(
-          `if (__VITE_IS_MODERN__ && deps && deps.length > 0) {`,
-          `if (__VITE_IS_MODERN__ && deps && deps.length > 0 && typeof window !== 'undefined') {`
+          "if (__VITE_IS_MODERN__ && deps && deps.length > 0) {",
+          `if (__VITE_IS_MODERN__ && deps && deps.length > 0 && typeof window !== 'undefined') {`,
         );
         return {
           code: s.toString(),
@@ -70,7 +70,7 @@ export const PrerenderPlugin = ({
       } else if (Array.isArray(options.input)) {
         options.input.push(prerender);
       } else if (options.input) {
-        options.input["prerender"] = prerender;
+        options.input.prerender = prerender;
       }
       options.preserveEntrySignatures = "allow-extension";
     },
@@ -88,13 +88,13 @@ export const PrerenderPlugin = ({
       const tmpDir = join(viteConfig.root, "node_modules/.temp/prerender");
       try {
         await rm(tmpDir, { recursive: true });
-      } catch (e: any) {
-        if (e.code !== "ENOENT") throw e;
+      } catch (e: unknown) {
+        if (e instanceof Error && "code" in e && e.code !== "ENOENT") throw e;
       }
       await mkdir(tmpDir, { recursive: true });
       await writeFile(
         join(tmpDir, "package.json"),
-        JSON.stringify({ type: "module" })
+        JSON.stringify({ type: "module" }),
       );
 
       let prerenderEntryFilename: string | null = null;
@@ -136,7 +136,7 @@ export const PrerenderPlugin = ({
         const result = await prerender({ url: route });
 
         if (result === null) continue;
-        const html = template.replace(`<!--app-html-->`, result.html);
+        const html = template.replace("<!--app-html-->", result.html);
         if (route === "/") {
           index.source = html;
         } else {

@@ -1,9 +1,15 @@
 import { defineConfig } from "@pandacss/dev";
 import {
+  button,
+  semanticButtonColors,
+} from "./design-system/components/button";
+import {
+  borderWidths,
   colors,
   semanticColors,
-  borderWidths,
 } from "./design-system/style/colors";
+import { radii } from "./design-system/style/radii";
+import { spacing } from "./design-system/style/spacing";
 import {
   fontSizes,
   fontWeights,
@@ -14,16 +20,10 @@ import {
   semanticLetterSpacings,
   semanticLineHeights,
 } from "./design-system/style/typography";
-import { spacing } from "./design-system/style/spacing";
-import { radii } from "./design-system/style/radii";
-import {
-  semanticButtonColors,
-  button,
-} from "./design-system/components/button";
 
 const isStorybook =
-  process.env["npm_lifecycle_event"] === "storybook" ||
-  process.env["npm_lifecycle_event"] === "build-storybook";
+  process.env.npm_lifecycle_event === "storybook" ||
+  process.env.npm_lifecycle_event === "build-storybook";
 
 export default defineConfig({
   preflight: true,

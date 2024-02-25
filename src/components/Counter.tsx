@@ -7,8 +7,12 @@ export const Counter = () => {
       <h2>Counter</h2>
 
       <p>Count: {count}</p>
-      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
-      <button onClick={() => setCount((prev) => prev - 1)}>Decrement</button>
+      <button type="button" onClick={() => setCount((prev) => prev + 1)}>
+        Increment
+      </button>
+      <button type="button" onClick={() => setCount((prev) => prev - 1)}>
+        Decrement
+      </button>
     </div>
   );
 };

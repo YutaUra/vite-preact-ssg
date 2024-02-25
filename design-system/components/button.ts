@@ -1,6 +1,6 @@
 import { defineRecipe, defineSemanticTokens } from "@pandacss/dev";
-import { semanticTokens } from "../style/utils";
 import { colors } from "../style/colors";
+import { semanticTokens } from "../style/utils";
 
 export const semanticButtonColors = defineSemanticTokens.colors(
   semanticTokens({ colors })({
@@ -102,7 +102,7 @@ export const semanticButtonColors = defineSemanticTokens.colors(
         },
       },
     },
-  })
+  }),
 );
 
 export const button = defineRecipe({

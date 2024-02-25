@@ -1,7 +1,7 @@
-import "../src/index.css";
-import { Preview, PreactRenderer } from "@storybook/preact";
 import { withThemeByClassName } from "@storybook/addon-themes";
+import { PreactRenderer, Preview } from "@storybook/preact";
 import { colors } from "../design-system/style/colors";
+import "../src/index.css";
 
 const preview = {
   parameters: {

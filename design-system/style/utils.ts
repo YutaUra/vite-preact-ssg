@@ -6,8 +6,8 @@ type _TokenValue<T extends Record<string, unknown>> = {
     ? K extends "value"
       ? ""
       : T[K] extends Record<string, unknown>
-      ? `${K}.${_TokenValue<T[K]>}`
-      : `${K}`
+        ? `${K}.${_TokenValue<T[K]>}`
+        : `${K}`
     : never;
 }[keyof T];
 type TokenValue<T extends Record<string, unknown>> =

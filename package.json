@@ -10,7 +10,8 @@
     "build": "panda codegen && vite build --outDir dist",
     "start:prod": "serve dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "check": "biome check --apply src .storybook design-system *.config.*"
   },
   "keywords": [],
   "author": "YutaUra",
@@ -22,6 +23,7 @@
     "wouter-preact": "3.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@pandacss/dev": "0.32.1",
     "@preact/preset-vite": "2.8.1",
     "@storybook/addon-essentials": "8.0.0-beta.4",

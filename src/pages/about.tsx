@@ -1,9 +1,9 @@
-import { Link, RouteComponentProps } from "wouter-preact";
-import { Counter } from "../components/Counter";
 import { css } from "@styled-system/css";
 import { button } from "@styled-system/recipes";
+import { Link, RouteComponentProps } from "wouter-preact";
+import { Counter } from "../components/Counter";
 
-const Page = (_: RouteComponentProps<{}>) => {
+const Page = (_: RouteComponentProps) => {
   return (
     <div>
       <h1
